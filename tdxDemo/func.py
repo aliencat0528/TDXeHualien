@@ -2,13 +2,13 @@ from django.conf import settings
 from linebot import LineBotApi
 from linebot.models import TextSendMessage,ImageSendMessage,StickerSendMessage,\
     LocationSendMessage,QuickReply,QuickReplyButton,MessageAction
-from CollectData import parkAPI
+from CollectData.parkAPI import DealData
 
 line_bot_api=LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 
 def sendPark(event):
     try:
-        parkinfo=parkAPI.showInfo()
+        parkinfo=DealData.showInfo()
         message=TextSendMessage(text=parkinfo)
         line_bot_api.reply_message(event.reply_token,message)
     except:

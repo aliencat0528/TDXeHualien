@@ -57,16 +57,20 @@ class DealData():
             csvfile.close()
 
     def showInfo(self):
+        mergepark=[]
         with open('AvailPark.csv', encoding="utf-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 for r in reader:
                     linepark=dict(zip([(dict(eval(r['CarParkName'])).values())],[r['AvailableSpaces']]))
+                    mergepark.append(linepark)
                     #print(linepark)
-        return linepark
-if __name__ == '__main__':
-    data=DealData('https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingAvailability/City/HualienCounty?%24format=JSON')
-    #data.getData()
-    data.showInfo()
+        csvfile.close()
+        return mergepark
+# if __name__ == '__main__':
+#     data=DealData('https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingAvailability/City/HualienCounty?%24format=JSON')
+#     #data.getData()
+#     data.showInfo()
+
 
 
 
