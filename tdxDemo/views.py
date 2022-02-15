@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage
-import func
+from . import func
 
 #settings.configure(DEBUG=True)
 line_bot_api=LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
