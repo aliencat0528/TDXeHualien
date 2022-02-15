@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage
-
+import func
 
 #settings.configure(DEBUG=True)
 line_bot_api=LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -27,7 +27,17 @@ def callback(request):
 
         for event in events:
             if isinstance(event,MessageEvent):
-                line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+                if isinstance(event.message,TextMessage):
+                    mtxt=event.message.text
+                    if mtxt=='搜搜停車場':
+                        func.sendPark(event)
+                    elif mtxt=='看看即時路況':
+                        func.sendRealTraffic(event)
+                    elif mtxt=='查查路線規劃':
+                        func.sendGoPlan(event)
+                    else:
+                        pass
+                #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
         return HttpResponse()
 
     else:
