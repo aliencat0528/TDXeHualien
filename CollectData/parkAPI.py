@@ -65,6 +65,7 @@ class DealData():
                     mergepark.append(linepark)
                     #print(linepark)
         csvfile.close()
+        #print(mergepark)
         return mergepark
 # if __name__ == '__main__':
 #     data=DealData('https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingAvailability/City/HualienCounty?%24format=JSON')

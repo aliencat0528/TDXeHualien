@@ -1,13 +1,17 @@
+import sys
 
+sys.path.append("C:\\herokuenv\\eHualien")
+#print(sys.path)
 # Create your views here.
 from django.conf import settings
+#from eHualien import settings
 from django.http import HttpResponse,HttpResponseBadRequest,HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextSendMessage
-from . import func
+from linebot.models import MessageEvent, TextMessage
+from tdxDemo import func
 
 #settings.configure(DEBUG=True)
 line_bot_api=LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
