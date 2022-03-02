@@ -43,7 +43,7 @@ def callback(request):
                         pass
                 #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
                 if isinstance(event.message,LocationMessage):
-                    print(event.message.text)
+                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
         return HttpResponse()
 
     else:
