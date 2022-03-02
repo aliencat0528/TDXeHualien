@@ -30,18 +30,18 @@ def callback(request):
             return HttpResponseBadRequest()
 
         for event in events:
-
-            if isinstance(event,MessageEvent):
-                if isinstance(event.message,TextMessage):
-                    mtxt=event.message.text
-                    if mtxt=='搜搜停車場':
-                        func.sendPark(event)
-                    elif mtxt=='看看即時路況':
-                        func.sendRealTraffic(event)
-                    elif mtxt=='查查路線規劃':
-                        func.sendGoPlan(event)
-                    else:
-                        pass
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.text))
+            # if isinstance(event,MessageEvent):
+            #     if isinstance(event.message,TextMessage):
+            #         mtxt=event.message.text
+            #         if mtxt=='搜搜停車場':
+            #             func.sendPark(event)
+            #         elif mtxt=='看看即時路況':
+            #             func.sendRealTraffic(event)
+            #         elif mtxt=='查查路線規劃':
+            #             func.sendGoPlan(event)
+            #         else:
+            #             pass
                 #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
             # if isinstance(event,PostbackEvent):
             #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
