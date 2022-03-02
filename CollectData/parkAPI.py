@@ -42,31 +42,50 @@ class DealData():
 
     def getData(self):
         a = Auth(app_id, app_key)
-        response = request('get',self.url,
-                 headers=a.get_auth_header())
-        self.saveData(response.text)
-    def saveData(self,response):
-        availParkData = json.loads(response)
-        with open('AvailPark.csv', 'w', newline='',encoding="utf-8") as csvfile:
-            field = availParkData["ParkingAvailabilities"][0].keys()
-            writer = csv.DictWriter(csvfile, fieldnames=field)
-            writer.writeheader()
-            for i in availParkData["ParkingAvailabilities"]:
-                writer.writerow(i)
+        for u in range(len(self.url)):
+            print(self.url[u],u)
+            response = request('get', self.url[u],
+                               headers=a.get_auth_header())
+            self.saveData(response.text,u)
+
+    def saveData(self,response,tag):
+        if(tag==0):
+            ParkInfoData = json.loads(response)
+            with open('ParkInfo.csv', 'w', newline='') as csvfile:
+                field = availParkData["ParkingAvailabilities"][0].keys()
+                writer = csv.DictWriter(csvfile, fieldnames=field)
+                writer.writeheader()
+                for i in ParkInfoData["ParkingEntranceExits"]:
+                    writer.writerow(i)
+                csvfile.close()
+
+
+        elif(tag==1):
+            availParkData = json.loads(response)
+            with open('AvailPark.csv', 'w', newline='', encoding="utf-8") as csvfile:
+                field = availParkData["ParkingAvailabilities"][0].keys()
+                writer = csv.DictWriter(csvfile, fieldnames=field)
+                writer.writeheader()
+                for i in availParkData["ParkingAvailabilities"]:
+                    writer.writerow(i)
 
             csvfile.close()
-
-    def showInfo(self):
-        mergepark=[]
-        with open('AvailPark.csv', encoding="utf-8") as csvfile:
+        else:
+            pass
+    def showInfo(self,kind):
+        if kind=="parkavailable":
+            mergepark = []
+            with open('AvailPark.csv', encoding="utf-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 for r in reader:
-                    linepark=dict(zip([(dict(eval(r['CarParkName'])).values())],[r['AvailableSpaces']]))
+                    linepark = dict(zip([(dict(eval(r['CarParkName'])).values())], [r['AvailableSpaces']]))
                     mergepark.append(linepark)
-                    #print(linepark)
-        csvfile.close()
-        #print(mergepark)
-        return mergepark
+                    # print(linepark)
+            csvfile.close()
+            print(str(mergepark))
+            return mergepark
+        else:
+            pass
 # if __name__ == '__main__':
 #     data=DealData('https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingAvailability/City/HualienCounty?%24format=JSON')
 #     #data.getData()

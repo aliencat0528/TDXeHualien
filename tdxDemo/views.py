@@ -46,4 +46,5 @@ def callback(request):
 
     else:
         return HttpResponseBadRequest()
-
+def showDB():
+    pass

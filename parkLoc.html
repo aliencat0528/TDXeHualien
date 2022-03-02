@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_f4579c1f5f0e4bba9a01c6570afd2fc7 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_f4579c1f5f0e4bba9a01c6570afd2fc7" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_f4579c1f5f0e4bba9a01c6570afd2fc7 = L.map(
+        'map_f4579c1f5f0e4bba9a01c6570afd2fc7', {
+        center: [23.7569, 121.3542],
+        zoom: 12,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_e7963fd30aa64b1e82dd428128c8431d = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+    
+
+            var circle_ba87770e96b24cf7849152384c1bf8be = L.circle(
+                [23.97289, 121.6097],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_9c885e14808f49ffad884671103b99d1 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_34594a7e6d7b43e08b11d4b7b8d769ee = $(`<div id="html_34594a7e6d7b43e08b11d4b7b8d769ee" style="width: 100.0%; height: 100.0%;">{'Zh_tw': ' 東芥東大門停車場'}</div>`)[0];
+                popup_9c885e14808f49ffad884671103b99d1.setContent(html_34594a7e6d7b43e08b11d4b7b8d769ee);
+            
+
+            circle_ba87770e96b24cf7849152384c1bf8be.bindPopup(popup_9c885e14808f49ffad884671103b99d1)
+            ;
+
+            
+        
+    
+
+            var circle_43cded6689b14b069897da778e164c33 = L.circle(
+                [23.97948, 121.6112],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_06de0f8f182c413b98b658985fb39a08 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_b1ea2be848bc42c0a35e03cedeb07ab4 = $(`<div id="html_b1ea2be848bc42c0a35e03cedeb07ab4" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '台灣國際開發事業有限公司花蓮醫院停車場'}</div>`)[0];
+                popup_06de0f8f182c413b98b658985fb39a08.setContent(html_b1ea2be848bc42c0a35e03cedeb07ab4);
+            
+
+            circle_43cded6689b14b069897da778e164c33.bindPopup(popup_06de0f8f182c413b98b658985fb39a08)
+            ;
+
+            
+        
+    
+
+            var circle_474472edab3641e9ab39ee8a087f4ef3 = L.circle(
+                [23.99226, 121.60194],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_d22d33b5ef92485a94089a514cf8c3a1 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_eb8c7662f2104c888d92b06158996081 = $(`<div id="html_eb8c7662f2104c888d92b06158996081" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '彪吉利(花蓮停四)機車停車場'}</div>`)[0];
+                popup_d22d33b5ef92485a94089a514cf8c3a1.setContent(html_eb8c7662f2104c888d92b06158996081);
+            
+
+            circle_474472edab3641e9ab39ee8a087f4ef3.bindPopup(popup_d22d33b5ef92485a94089a514cf8c3a1)
+            ;
+
+            
+        
+    
+
+            var circle_976a04d6f71d49b28e9be525997d13ce = L.circle(
+                [23.99083, 121.59408],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_4a7a7b0e8f08475496250171bb54bbf2 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_a1ce8eeda6b04614a6dec8603f6a938c = $(`<div id="html_a1ce8eeda6b04614a6dec8603f6a938c" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '國富二街停車場'}</div>`)[0];
+                popup_4a7a7b0e8f08475496250171bb54bbf2.setContent(html_a1ce8eeda6b04614a6dec8603f6a938c);
+            
+
+            circle_976a04d6f71d49b28e9be525997d13ce.bindPopup(popup_4a7a7b0e8f08475496250171bb54bbf2)
+            ;
+
+            
+        
+    
+
+            var circle_13613c7d6cd24be0908c7e34f140a5d3 = L.circle(
+                [23.97912, 121.59876],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_021f57426ce44a8595226e4d7e0e6d47 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_80c928b86cb44b6db8977c9b5bca3f92 = $(`<div id="html_80c928b86cb44b6db8977c9b5bca3f92" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '遠東百貨股份有限公司花蓮和平分公司'}</div>`)[0];
+                popup_021f57426ce44a8595226e4d7e0e6d47.setContent(html_80c928b86cb44b6db8977c9b5bca3f92);
+            
+
+            circle_13613c7d6cd24be0908c7e34f140a5d3.bindPopup(popup_021f57426ce44a8595226e4d7e0e6d47)
+            ;
+
+            
+        
+    
+
+            var circle_f3695a656449413cbd2a3fb2e765b265 = L.circle(
+                [23.99458, 121.59331],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_08468322eb034aa4915731b2c92ce48b = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_c6066895c3e740a29d3815f0aefc96bc = $(`<div id="html_c6066895c3e740a29d3815f0aefc96bc" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '成佳財停車場-慈濟醫院對面'}</div>`)[0];
+                popup_08468322eb034aa4915731b2c92ce48b.setContent(html_c6066895c3e740a29d3815f0aefc96bc);
+            
+
+            circle_f3695a656449413cbd2a3fb2e765b265.bindPopup(popup_08468322eb034aa4915731b2c92ce48b)
+            ;
+
+            
+        
+    
+
+            var circle_30fcc6c0445e4a45a3780e6f2ce103f7 = L.circle(
+                [23.99566, 121.6041],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_7c86002550534bd2ae3bb3884b68d2d6 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_389dfa8c671c4ba088a4dffddd96a98b = $(`<div id="html_389dfa8c671c4ba088a4dffddd96a98b" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '彪吉利停場車(國民段469號)'}</div>`)[0];
+                popup_7c86002550534bd2ae3bb3884b68d2d6.setContent(html_389dfa8c671c4ba088a4dffddd96a98b);
+            
+
+            circle_30fcc6c0445e4a45a3780e6f2ce103f7.bindPopup(popup_7c86002550534bd2ae3bb3884b68d2d6)
+            ;
+
+            
+        
+    
+
+            var circle_caf3c5263b9940c093aa94a38f5f747f = L.circle(
+                [23.97774, 121.6044],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_aace6fce0665470986b27fec1bd938c1 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_350873944dc446b58ba90d6d32e50aad = $(`<div id="html_350873944dc446b58ba90d6d32e50aad" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '花蓮文化創意產業園區停車場'}</div>`)[0];
+                popup_aace6fce0665470986b27fec1bd938c1.setContent(html_350873944dc446b58ba90d6d32e50aad);
+            
+
+            circle_caf3c5263b9940c093aa94a38f5f747f.bindPopup(popup_aace6fce0665470986b27fec1bd938c1)
+            ;
+
+            
+        
+    
+
+            var circle_65264bb2d4004095910a3f8aa320a7a3 = L.circle(
+                [23.9787, 121.61098],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_2fc65f0786d44190a524af345b34d5cd = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_a079cd4624464486a16ad067fcdf430c = $(`<div id="html_a079cd4624464486a16ad067fcdf430c" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '明禮路停車場'}</div>`)[0];
+                popup_2fc65f0786d44190a524af345b34d5cd.setContent(html_a079cd4624464486a16ad067fcdf430c);
+            
+
+            circle_65264bb2d4004095910a3f8aa320a7a3.bindPopup(popup_2fc65f0786d44190a524af345b34d5cd)
+            ;
+
+            
+        
+    
+
+            var circle_7beff674ac1d453b95ecc21083f0866f = L.circle(
+                [24.02544, 121.61276],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_d2a317b160c44bb0887cf4ae3e75de60 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_ad4cfa8c7ae74dd4b9fb49aed3a8d3ce = $(`<div id="html_ad4cfa8c7ae74dd4b9fb49aed3a8d3ce" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '花蓮航空站計時收費停車場'}</div>`)[0];
+                popup_d2a317b160c44bb0887cf4ae3e75de60.setContent(html_ad4cfa8c7ae74dd4b9fb49aed3a8d3ce);
+            
+
+            circle_7beff674ac1d453b95ecc21083f0866f.bindPopup(popup_d2a317b160c44bb0887cf4ae3e75de60)
+            ;
+
+            
+        
+    
+
+            var circle_bb3bdb59429f47e6b946356f6c529ea0 = L.circle(
+                [23.86902, 121.5106],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_56e8025a1c9f47b7a3c1a8a1f8bb43d6 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_9c53d89c8e5d47d4820fa329a950747b = $(`<div id="html_9c53d89c8e5d47d4820fa329a950747b" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '壽豐停1停車場'}</div>`)[0];
+                popup_56e8025a1c9f47b7a3c1a8a1f8bb43d6.setContent(html_9c53d89c8e5d47d4820fa329a950747b);
+            
+
+            circle_bb3bdb59429f47e6b946356f6c529ea0.bindPopup(popup_56e8025a1c9f47b7a3c1a8a1f8bb43d6)
+            ;
+
+            
+        
+    
+
+            var circle_c021bd8ab55148918f7e6fd1c7fcf912 = L.circle(
+                [23.99344, 121.5994],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_4c9edc3b85f042b8b3ad367557de3234 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_04d7eff412ce463c8cf815b49534ca22 = $(`<div id="html_04d7eff412ce463c8cf815b49534ca22" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '多功能停車場'}</div>`)[0];
+                popup_4c9edc3b85f042b8b3ad367557de3234.setContent(html_04d7eff412ce463c8cf815b49534ca22);
+            
+
+            circle_c021bd8ab55148918f7e6fd1c7fcf912.bindPopup(popup_4c9edc3b85f042b8b3ad367557de3234)
+            ;
+
+            
+        
+    
+
+            var circle_71e6551bb4824f0e9194de2cf0e56298 = L.circle(
+                [23.98346, 121.62199],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_ae0e7693951a4effa7ca92ef4aa16ef3 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_f087d181823a457ea15431965e76adc8 = $(`<div id="html_f087d181823a457ea15431965e76adc8" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '花蓮民德二停車場'}</div>`)[0];
+                popup_ae0e7693951a4effa7ca92ef4aa16ef3.setContent(html_f087d181823a457ea15431965e76adc8);
+            
+
+            circle_71e6551bb4824f0e9194de2cf0e56298.bindPopup(popup_ae0e7693951a4effa7ca92ef4aa16ef3)
+            ;
+
+            
+        
+    
+
+            var circle_32ed093768194640b51f0f8ce03e4667 = L.circle(
+                [23.97284, 121.6131],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_a9fc5b22b0774c0bb58ec503585f336a = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_423f1de170b34a7ab8844cf123e5e013 = $(`<div id="html_423f1de170b34a7ab8844cf123e5e013" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '168停車聯盟花蓮東大門場'}</div>`)[0];
+                popup_a9fc5b22b0774c0bb58ec503585f336a.setContent(html_423f1de170b34a7ab8844cf123e5e013);
+            
+
+            circle_32ed093768194640b51f0f8ce03e4667.bindPopup(popup_a9fc5b22b0774c0bb58ec503585f336a)
+            ;
+
+            
+        
+    
+
+            var circle_1184033cf7f449ceaa24b463a69136ce = L.circle(
+                [23.99347, 121.60331],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_6454110d338c4f5fbe114b726384799b = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_5e93384a845a4385b80da84f71e96519 = $(`<div id="html_5e93384a845a4385b80da84f71e96519" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '前站停車場'}</div>`)[0];
+                popup_6454110d338c4f5fbe114b726384799b.setContent(html_5e93384a845a4385b80da84f71e96519);
+            
+
+            circle_1184033cf7f449ceaa24b463a69136ce.bindPopup(popup_6454110d338c4f5fbe114b726384799b)
+            ;
+
+            
+        
+    
+
+            var circle_68f1ac259fd34929b8d03f80b3acbc82 = L.circle(
+                [23.84551, 121.5353],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_bf33ece3faa34970a869d8dcd1d8f000 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_2a2e356662644f44bcbc1955ad08d6c7 = $(`<div id="html_2a2e356662644f44bcbc1955ad08d6c7" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '遠雄海洋公園(股)公司'}</div>`)[0];
+                popup_bf33ece3faa34970a869d8dcd1d8f000.setContent(html_2a2e356662644f44bcbc1955ad08d6c7);
+            
+
+            circle_68f1ac259fd34929b8d03f80b3acbc82.bindPopup(popup_bf33ece3faa34970a869d8dcd1d8f000)
+            ;
+
+            
+        
+    
+
+            var circle_6a1a3a9122f24fd387cc085b74dbdbec = L.circle(
+                [23.96622, 121.59211],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_ba0ac96f0a5c454f9e7f9e63e902b35d = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_edb8cafaed074f0d99bce205af011b9a = $(`<div id="html_edb8cafaed074f0d99bce205af011b9a" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '吉安仁里立體停車場'}</div>`)[0];
+                popup_ba0ac96f0a5c454f9e7f9e63e902b35d.setContent(html_edb8cafaed074f0d99bce205af011b9a);
+            
+
+            circle_6a1a3a9122f24fd387cc085b74dbdbec.bindPopup(popup_ba0ac96f0a5c454f9e7f9e63e902b35d)
+            ;
+
+            
+        
+    
+
+            var circle_605551c8de644ccc83ed5ddf6cddde32 = L.circle(
+                [23.97747, 121.59945],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_55f0b4480f2141098f2b1f7820f87e7b = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_52707fffae444b73818d20b98e0995c9 = $(`<div id="html_52707fffae444b73818d20b98e0995c9" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '林森停車場'}</div>`)[0];
+                popup_55f0b4480f2141098f2b1f7820f87e7b.setContent(html_52707fffae444b73818d20b98e0995c9);
+            
+
+            circle_605551c8de644ccc83ed5ddf6cddde32.bindPopup(popup_55f0b4480f2141098f2b1f7820f87e7b)
+            ;
+
+            
+        
+    
+
+            var circle_7eb66666db7d44489a441a2ad2b67752 = L.circle(
+                [23.98349, 121.62111],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_b389d101eac34f2aa33e79354ef7bcdd = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_d0ca24b3b22f4962bff6691bc55e4caa = $(`<div id="html_d0ca24b3b22f4962bff6691bc55e4caa" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '花蓮民德一停車場'}</div>`)[0];
+                popup_b389d101eac34f2aa33e79354ef7bcdd.setContent(html_d0ca24b3b22f4962bff6691bc55e4caa);
+            
+
+            circle_7eb66666db7d44489a441a2ad2b67752.bindPopup(popup_b389d101eac34f2aa33e79354ef7bcdd)
+            ;
+
+            
+        
+    
+
+            var circle_9599d2d5cae143d597ed81bad49f500a = L.circle(
+                [23.97269, 121.5797],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_ad2a089c712746ad90879666ca9f9507 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_da835df7d56f4f9eaae5d10e93bb3823 = $(`<div id="html_da835df7d56f4f9eaae5d10e93bb3823" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '博客停車場寶雅吉安場'}</div>`)[0];
+                popup_ad2a089c712746ad90879666ca9f9507.setContent(html_da835df7d56f4f9eaae5d10e93bb3823);
+            
+
+            circle_9599d2d5cae143d597ed81bad49f500a.bindPopup(popup_ad2a089c712746ad90879666ca9f9507)
+            ;
+
+            
+        
+    
+
+            var circle_13b153424750490b83c8612fd034272f = L.circle(
+                [23.9943, 121.6078],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_cff4c08b3ce84d9ab240e7a08ae04f9a = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_8219abdc91f944969eec3021322d3c9a = $(`<div id="html_8219abdc91f944969eec3021322d3c9a" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '國盛四街停車場'}</div>`)[0];
+                popup_cff4c08b3ce84d9ab240e7a08ae04f9a.setContent(html_8219abdc91f944969eec3021322d3c9a);
+            
+
+            circle_13b153424750490b83c8612fd034272f.bindPopup(popup_cff4c08b3ce84d9ab240e7a08ae04f9a)
+            ;
+
+            
+        
+    
+
+            var circle_fcfc6e9501e34402ae7f89ec1d6eab9d = L.circle(
+                [23.99233, 121.60512],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_76c1205f106340ef8cf99ca1c44587c6 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_f82e061ac4744306a37c8618b64b65b8 = $(`<div id="html_f82e061ac4744306a37c8618b64b65b8" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '彪吉利停車場(國聯五路站)'}</div>`)[0];
+                popup_76c1205f106340ef8cf99ca1c44587c6.setContent(html_f82e061ac4744306a37c8618b64b65b8);
+            
+
+            circle_fcfc6e9501e34402ae7f89ec1d6eab9d.bindPopup(popup_76c1205f106340ef8cf99ca1c44587c6)
+            ;
+
+            
+        
+    
+
+            var circle_a054b3566c2649679040677aaa8d885c = L.circle(
+                [23.99169, 121.6021],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_e5c1ae37570347b288a1086a3c829275 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_8273d9ae5ba445deb78f32387d56cb98 = $(`<div id="html_8273d9ae5ba445deb78f32387d56cb98" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '彪吉利(花蓮停三)汽(紅黃牌重機)車停車場'}</div>`)[0];
+                popup_e5c1ae37570347b288a1086a3c829275.setContent(html_8273d9ae5ba445deb78f32387d56cb98);
+            
+
+            circle_a054b3566c2649679040677aaa8d885c.bindPopup(popup_e5c1ae37570347b288a1086a3c829275)
+            ;
+
+            
+        
+    
+
+            var circle_9956a6e201964f4ab21894319214cbdd = L.circle(
+                [23.98872, 121.5965],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_b8fb402f1f6e4733b421be7ffdc8130a = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_eb09e379171a459898968493eec2c9ff = $(`<div id="html_eb09e379171a459898968493eec2c9ff" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '新康停車場'}</div>`)[0];
+                popup_b8fb402f1f6e4733b421be7ffdc8130a.setContent(html_eb09e379171a459898968493eec2c9ff);
+            
+
+            circle_9956a6e201964f4ab21894319214cbdd.bindPopup(popup_b8fb402f1f6e4733b421be7ffdc8130a)
+            ;
+
+            
+        
+    
+
+            var circle_11c716cf391c4b908fe7e646c81eeac6 = L.circle(
+                [23.97531, 121.60735],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_9cdc2c13164b4d50b9ec7b92ae222e1d = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_5729a81b080b472cb52076975fbc8b75 = $(`<div id="html_5729a81b080b472cb52076975fbc8b75" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '花蓮民生停車場'}</div>`)[0];
+                popup_9cdc2c13164b4d50b9ec7b92ae222e1d.setContent(html_5729a81b080b472cb52076975fbc8b75);
+            
+
+            circle_11c716cf391c4b908fe7e646c81eeac6.bindPopup(popup_9cdc2c13164b4d50b9ec7b92ae222e1d)
+            ;
+
+            
+        
+    
+
+            var circle_7fde48b8b1ca42ec906a3ceee50f1d8e = L.circle(
+                [23.9924, 121.5947],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_5f49a6eb987642fcbbf9faed0e0eb115 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_e2e74ce04ccb448b91938aaed1c2d41a = $(`<div id="html_e2e74ce04ccb448b91938aaed1c2d41a" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '國富二十二街停車場'}</div>`)[0];
+                popup_5f49a6eb987642fcbbf9faed0e0eb115.setContent(html_e2e74ce04ccb448b91938aaed1c2d41a);
+            
+
+            circle_7fde48b8b1ca42ec906a3ceee50f1d8e.bindPopup(popup_5f49a6eb987642fcbbf9faed0e0eb115)
+            ;
+
+            
+        
+    
+
+            var circle_8261b3cfedae4a2aa3a60b54435b5daa = L.circle(
+                [23.98523, 121.6058],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_487f70f432dc448db000a6e589f5c9f4 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_e8fe417134bb46d9952582406b92c82f = $(`<div id="html_e8fe417134bb46d9952582406b92c82f" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '福廣明心停車場'}</div>`)[0];
+                popup_487f70f432dc448db000a6e589f5c9f4.setContent(html_e8fe417134bb46d9952582406b92c82f);
+            
+
+            circle_8261b3cfedae4a2aa3a60b54435b5daa.bindPopup(popup_487f70f432dc448db000a6e589f5c9f4)
+            ;
+
+            
+        
+    
+
+            var circle_05f58e5aa97040fd9c5ce58412fb5886 = L.circle(
+                [23.99418, 121.6035],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_f03618c9a30a45cc84b88a71f0e401f9 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_969472d895314f5b8837cb7d3c224b33 = $(`<div id="html_969472d895314f5b8837cb7d3c224b33" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '停好車停車場'}</div>`)[0];
+                popup_f03618c9a30a45cc84b88a71f0e401f9.setContent(html_969472d895314f5b8837cb7d3c224b33);
+            
+
+            circle_05f58e5aa97040fd9c5ce58412fb5886.bindPopup(popup_f03618c9a30a45cc84b88a71f0e401f9)
+            ;
+
+            
+        
+    
+
+            var circle_7f0b21ead9c1498c9d06c24880cae801 = L.circle(
+                [23.97324, 121.6103],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_1db36e8e807e416cbd971b1794acd290 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_552f1ad6ac6e4887af926c522c20d2d5 = $(`<div id="html_552f1ad6ac6e4887af926c522c20d2d5" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '統冠重慶店停車場'}</div>`)[0];
+                popup_1db36e8e807e416cbd971b1794acd290.setContent(html_552f1ad6ac6e4887af926c522c20d2d5);
+            
+
+            circle_7f0b21ead9c1498c9d06c24880cae801.bindPopup(popup_1db36e8e807e416cbd971b1794acd290)
+            ;
+
+            
+        
+    
+
+            var circle_30fa88393ea242009290735c3587c9f6 = L.circle(
+                [23.99161, 121.59574],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_4b656bfd942b457eaaf1e604ee0eaf94 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_ddd2bfba17f34eb3807487451c74584c = $(`<div id="html_ddd2bfba17f34eb3807487451c74584c" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '丞捷停車場 '}</div>`)[0];
+                popup_4b656bfd942b457eaaf1e604ee0eaf94.setContent(html_ddd2bfba17f34eb3807487451c74584c);
+            
+
+            circle_30fa88393ea242009290735c3587c9f6.bindPopup(popup_4b656bfd942b457eaaf1e604ee0eaf94)
+            ;
+
+            
+        
+    
+
+            var circle_640765237d454341aec68c448e402ced = L.circle(
+                [23.97813, 121.60225],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_3304edea95d34adc85e8641c384bb224 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_7b11cf156fed4d20a28ec251642b11d3 = $(`<div id="html_7b11cf156fed4d20a28ec251642b11d3" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '福廣仁愛停車場'}</div>`)[0];
+                popup_3304edea95d34adc85e8641c384bb224.setContent(html_7b11cf156fed4d20a28ec251642b11d3);
+            
+
+            circle_640765237d454341aec68c448e402ced.bindPopup(popup_3304edea95d34adc85e8641c384bb224)
+            ;
+
+            
+        
+    
+
+            var circle_93540891280646bb954535f645f0ec6c = L.circle(
+                [23.9847, 121.6035],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_bbe09d5ae5be473eb704f475d0328c87 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_0994ab18699e4bfbbb109f03c2c25f40 = $(`<div id="html_0994ab18699e4bfbbb109f03c2c25f40" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '中山明智停車場'}</div>`)[0];
+                popup_bbe09d5ae5be473eb704f475d0328c87.setContent(html_0994ab18699e4bfbbb109f03c2c25f40);
+            
+
+            circle_93540891280646bb954535f645f0ec6c.bindPopup(popup_bbe09d5ae5be473eb704f475d0328c87)
+            ;
+
+            
+        
+    
+
+            var circle_377a418b0b1f4987a0070c86ac010b21 = L.circle(
+                [23.9785, 121.61016],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_d1043f9f82604380bb436ce0f475c76b = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_2c05c121705d459c82492f5ffb5384fa = $(`<div id="html_2c05c121705d459c82492f5ffb5384fa" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '永發停車三民站'}</div>`)[0];
+                popup_d1043f9f82604380bb436ce0f475c76b.setContent(html_2c05c121705d459c82492f5ffb5384fa);
+            
+
+            circle_377a418b0b1f4987a0070c86ac010b21.bindPopup(popup_d1043f9f82604380bb436ce0f475c76b)
+            ;
+
+            
+        
+    
+
+            var circle_9692230cd4294f6b89d6bebf364f7913 = L.circle(
+                [23.97976, 121.60614],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_9cbd5cd24d2c4b249a7b81a2a5d4e7ce = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_89682bd140834adf903d6e03ad98d9d4 = $(`<div id="html_89682bd140834adf903d6e03ad98d9d4" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '新港街停車場'}</div>`)[0];
+                popup_9cbd5cd24d2c4b249a7b81a2a5d4e7ce.setContent(html_89682bd140834adf903d6e03ad98d9d4);
+            
+
+            circle_9692230cd4294f6b89d6bebf364f7913.bindPopup(popup_9cbd5cd24d2c4b249a7b81a2a5d4e7ce)
+            ;
+
+            
+        
+    
+
+            var circle_847bd728f3394ebab61971d3b353d085 = L.circle(
+                [23.99535, 121.5931],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_ddfbd0f07c414fa5853dc829f7a7aa41 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_4c2ca6fbd1fc4d2a9ba8c672a3b31302 = $(`<div id="html_4c2ca6fbd1fc4d2a9ba8c672a3b31302" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '佛教慈濟醫療財團法人花蓮慈濟醫院停車場'}</div>`)[0];
+                popup_ddfbd0f07c414fa5853dc829f7a7aa41.setContent(html_4c2ca6fbd1fc4d2a9ba8c672a3b31302);
+            
+
+            circle_847bd728f3394ebab61971d3b353d085.bindPopup(popup_ddfbd0f07c414fa5853dc829f7a7aa41)
+            ;
+
+            
+        
+    
+
+            var circle_81a00194631e4b83a21b6706f28eac35 = L.circle(
+                [23.97546, 121.6096],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_97de8c0b30b549c8990c81871406006d = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_50b948704c1d4b95bad613b0b0b5cd1c = $(`<div id="html_50b948704c1d4b95bad613b0b0b5cd1c" style="width: 100.0%; height: 100.0%;">{'Zh_tw': 'P&P停車場'}</div>`)[0];
+                popup_97de8c0b30b549c8990c81871406006d.setContent(html_50b948704c1d4b95bad613b0b0b5cd1c);
+            
+
+            circle_81a00194631e4b83a21b6706f28eac35.bindPopup(popup_97de8c0b30b549c8990c81871406006d)
+            ;
+
+            
+        
+    
+
+            var circle_c826fec14ecb4d72bff874225b1eb897 = L.circle(
+                [23.98826, 121.6272],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_7d4ac1b2b1a2471c9409738aa4d97fc3 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_955fddc76c6c4005a3df7f05e3dfd050 = $(`<div id="html_955fddc76c6c4005a3df7f05e3dfd050" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '臺灣基督教門諾會醫療財團法人門諾醫院收費停車場'}</div>`)[0];
+                popup_7d4ac1b2b1a2471c9409738aa4d97fc3.setContent(html_955fddc76c6c4005a3df7f05e3dfd050);
+            
+
+            circle_c826fec14ecb4d72bff874225b1eb897.bindPopup(popup_7d4ac1b2b1a2471c9409738aa4d97fc3)
+            ;
+
+            
+        
+    
+
+            var circle_47d64107464746c18ed518b7b09207ce = L.circle(
+                [23.98, 121.60965],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_f44c9cc57ed5443a91fb7f79dd8b0da3 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_69bf2e1962604e48a7343453b0490f62 = $(`<div id="html_69bf2e1962604e48a7343453b0490f62" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '節約街停車場'}</div>`)[0];
+                popup_f44c9cc57ed5443a91fb7f79dd8b0da3.setContent(html_69bf2e1962604e48a7343453b0490f62);
+            
+
+            circle_47d64107464746c18ed518b7b09207ce.bindPopup(popup_f44c9cc57ed5443a91fb7f79dd8b0da3)
+            ;
+
+            
+        
+    
+
+            var circle_0be19ea9c19d46dba771637d5ac90a95 = L.circle(
+                [23.9733, 121.60874],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_a1ac3c74fb0042379ffacb099e4a8a6e = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_4228c87aec76499fbf625895283ac6f5 = $(`<div id="html_4228c87aec76499fbf625895283ac6f5" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '建程自由街停車場'}</div>`)[0];
+                popup_a1ac3c74fb0042379ffacb099e4a8a6e.setContent(html_4228c87aec76499fbf625895283ac6f5);
+            
+
+            circle_0be19ea9c19d46dba771637d5ac90a95.bindPopup(popup_a1ac3c74fb0042379ffacb099e4a8a6e)
+            ;
+
+            
+        
+    
+
+            var circle_b2db2eef28e04a84add71eef2b832aa7 = L.circle(
+                [23.99113, 121.60575],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_760a9f2bc5b845f9be869e51296438ab = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_0c85bc747adb4656a8e59ebd2c16dca2 = $(`<div id="html_0c85bc747adb4656a8e59ebd2c16dca2" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '彪吉利停車場(國盛站)'}</div>`)[0];
+                popup_760a9f2bc5b845f9be869e51296438ab.setContent(html_0c85bc747adb4656a8e59ebd2c16dca2);
+            
+
+            circle_b2db2eef28e04a84add71eef2b832aa7.bindPopup(popup_760a9f2bc5b845f9be869e51296438ab)
+            ;
+
+            
+        
+    
+
+            var circle_bcce1f0216e044259136d0ed46ef6e66 = L.circle(
+                [23.99363, 121.6068],
+                {
+  "bubblingMouseEvents": true,
+  "color": "blue",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_d1353f254afc4bc0b39e9ef172785b54 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_a91545be14ba4048a7e1ee91c336cfaa = $(`<div id="html_a91545be14ba4048a7e1ee91c336cfaa" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '停好停滿停車場中華國小站'}</div>`)[0];
+                popup_d1353f254afc4bc0b39e9ef172785b54.setContent(html_a91545be14ba4048a7e1ee91c336cfaa);
+            
+
+            circle_bcce1f0216e044259136d0ed46ef6e66.bindPopup(popup_d1353f254afc4bc0b39e9ef172785b54)
+            ;
+
+            
+        
+    
+
+            var circle_acd2705cf4e4447aabd0a25cecb1fac4 = L.circle(
+                [23.98041, 121.60822],
+                {
+  "bubblingMouseEvents": true,
+  "color": "blue",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_7c4c2824e1b84612bb6f92289a0af399 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_ae02a780747e403c839fa5fbf449ebe1 = $(`<div id="html_ae02a780747e403c839fa5fbf449ebe1" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '永發停車場-東洋站'}</div>`)[0];
+                popup_7c4c2824e1b84612bb6f92289a0af399.setContent(html_ae02a780747e403c839fa5fbf449ebe1);
+            
+
+            circle_acd2705cf4e4447aabd0a25cecb1fac4.bindPopup(popup_7c4c2824e1b84612bb6f92289a0af399)
+            ;
+
+            
+        
+    
+
+            var circle_9994c2b577d64147ad8d77b87aa84f09 = L.circle(
+                [23.97752, 121.6115],
+                {
+  "bubblingMouseEvents": true,
+  "color": "blue",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_1fadb6b29d1f4e9097e69540d35ae319 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_acec179e4770446fa60d78b43ecf7e18 = $(`<div id="html_acec179e4770446fa60d78b43ecf7e18" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '花蓮市公園三民站'}</div>`)[0];
+                popup_1fadb6b29d1f4e9097e69540d35ae319.setContent(html_acec179e4770446fa60d78b43ecf7e18);
+            
+
+            circle_9994c2b577d64147ad8d77b87aa84f09.bindPopup(popup_1fadb6b29d1f4e9097e69540d35ae319)
+            ;
+
+            
+        
+    
+
+            var circle_054033a9a00944b7a6e958fa1f6e2962 = L.circle(
+                [23.99201, 121.60607],
+                {
+  "bubblingMouseEvents": true,
+  "color": "blue",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_adb67487b7f84d1bb64c589c2b5bc07d = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_14b3b1f7a2314334a1c1ed1c6b0e73b2 = $(`<div id="html_14b3b1f7a2314334a1c1ed1c6b0e73b2" style="width: 100.0%; height: 100.0%;">{'Zh_tw': 'WORLD GYM世界健身俱樂部停車場'}</div>`)[0];
+                popup_adb67487b7f84d1bb64c589c2b5bc07d.setContent(html_14b3b1f7a2314334a1c1ed1c6b0e73b2);
+            
+
+            circle_054033a9a00944b7a6e958fa1f6e2962.bindPopup(popup_adb67487b7f84d1bb64c589c2b5bc07d)
+            ;
+
+            
+        
+    
+
+            var circle_0cac8f48e8cf4ed5bfad1c14a09a92b6 = L.circle(
+                [23.97398, 121.60644],
+                {
+  "bubblingMouseEvents": true,
+  "color": "blue",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_1875c676ea0d4f428c607ebc9b73835c = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_77ff0132d1e146aaaf18f5257beacec6 = $(`<div id="html_77ff0132d1e146aaaf18f5257beacec6" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '花蓮市忠孝立體停車場'}</div>`)[0];
+                popup_1875c676ea0d4f428c607ebc9b73835c.setContent(html_77ff0132d1e146aaaf18f5257beacec6);
+            
+
+            circle_0cac8f48e8cf4ed5bfad1c14a09a92b6.bindPopup(popup_1875c676ea0d4f428c607ebc9b73835c)
+            ;
+
+            
+        
+    
+
+            var circle_11507012b8d5487f8f7e82d5c6a5fb53 = L.circle(
+                [23.99364, 121.59956],
+                {
+  "bubblingMouseEvents": true,
+  "color": "blue",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50,
+  "stroke": true,
+  "weight": 10
+}
+                )
+                .addTo(map_f4579c1f5f0e4bba9a01c6570afd2fc7);
+            
+    
+            var popup_1552438e4413442ab939b7a3c6fa5658 = L.popup({maxWidth: '100%'
+            
+            });
+
+            
+                var html_55af12bbb9c747b4b8722ad8929ffa54 = $(`<div id="html_55af12bbb9c747b4b8722ad8929ffa54" style="width: 100.0%; height: 100.0%;">{'Zh_tw': '後火車站機車停車場'}</div>`)[0];
+                popup_1552438e4413442ab939b7a3c6fa5658.setContent(html_55af12bbb9c747b4b8722ad8929ffa54);
+            
+
+            circle_11507012b8d5487f8f7e82d5c6a5fb53.bindPopup(popup_1552438e4413442ab939b7a3c6fa5658)
+            ;
+
+            
+        
+</script>

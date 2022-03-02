@@ -36,5 +36,6 @@ application = get_wsgi_application()
 
 urlpatterns = [
     url('^callback',views.callback),
+    url('^showDB',views.showDB),
     path('admin/', admin.site.urls),
 ]
