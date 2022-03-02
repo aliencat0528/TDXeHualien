@@ -43,9 +43,9 @@ def callback(request):
                     else:
                         pass
                 #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
-            if isinstance(event,PostbackEvent):
-                line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
-
+            # if isinstance(event,PostbackEvent):
+            #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.text))
         return HttpResponse()
 
     else:
