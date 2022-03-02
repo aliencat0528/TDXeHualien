@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextMessage
+from linebot.models import MessageEvent, TextMessage,LocationMessage
 from tdxDemo import func
 
 #settings.configure(DEBUG=True)
@@ -42,6 +42,8 @@ def callback(request):
                     else:
                         pass
                 #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+                if isinstance(event.message,LocationMessage):
+                    print(event.message.text)
         return HttpResponse()
 
     else:
