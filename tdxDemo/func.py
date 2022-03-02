@@ -34,7 +34,7 @@ def sendRealTraffic(event):
 
 def sendGoPlan(event):
     try:
-        message=TextSendMessage(quick_reply=QuickReply(items=[QuickReplyButton(action=LocationAction(label="開啟地圖分享位置"))]))
+        message=TextSendMessage(text="點選按鈕以分享位置",quick_reply=QuickReply(items=[QuickReplyButton(action=LocationAction(label="開啟地圖"))]))
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))
