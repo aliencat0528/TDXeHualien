@@ -36,6 +36,6 @@ def sendGoPlan(event):
     try:
         message=TextSendMessage(text="點選按鈕以分享位置",quick_reply=QuickReply(items=[QuickReplyButton(action=LocationAction(label="開啟地圖"))]))
         line_bot_api.reply_message(event.reply_token,message)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))
