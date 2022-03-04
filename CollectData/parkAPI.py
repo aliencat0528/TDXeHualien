@@ -1,6 +1,7 @@
 import requests
 import json
 import csv
+import math
 
 from hashlib import sha1
 import hmac
@@ -42,17 +43,20 @@ class DealData():
 
     def getData(self):
         a = Auth(app_id, app_key)
+        #print(len(self.url))
         for u in range(len(self.url)):
-            print(self.url[u],u)
+            #print(self.url[u],u)
             response = request('get', self.url[u],
                                headers=a.get_auth_header())
+            #print(response)
             self.saveData(response.text,u)
+
 
     def saveData(self,response,tag):
         if(tag==0):
             ParkInfoData = json.loads(response)
-            with open('ParkInfo.csv', 'w', newline='') as csvfile:
-                field = availParkData["ParkingAvailabilities"][0].keys()
+            with open('ParkInfo.csv', 'w', newline='',encoding="utf-8") as csvfile:
+                field = ParkInfoData["ParkingEntranceExits"][0].keys()
                 writer = csv.DictWriter(csvfile, fieldnames=field)
                 writer.writeheader()
                 for i in ParkInfoData["ParkingEntranceExits"]:
@@ -72,7 +76,7 @@ class DealData():
             csvfile.close()
         else:
             pass
-    def showInfo(self,kind):
+    def parkInfo(self,kind):
         if kind=="parkavailable":
             mergepark = []
             with open('AvailPark.csv', encoding="utf-8") as csvfile:
@@ -86,10 +90,109 @@ class DealData():
             return mergepark
         else:
             pass
-# if __name__ == '__main__':
-#     data=DealData('https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingAvailability/City/HualienCounty?%24format=JSON')
-#     #data.getData()
-#     data.showInfo()
+
+
+
+class DealLoc():
+
+    def __init__(self,usrLat, usrLon):
+        self.usrLat = usrLat
+        self.usrLon = usrLon
+
+    def cntDistance(self):
+        allEE= self.getParkLoc()
+        print(allEE)
+        global dist,parkLat,parkLon
+        dist=[]; parkLat=0.0;parkLon=0.0
+        ra = 6378140  # 赤道半徑
+        rb = 6356755  # 極半徑
+        flatten = (ra - rb) / ra  # Partial rate of the earth
+        # change angle to radians
+        radLatA = math.radians(self.usrLat)
+        radLonA = math.radians(self.usrLon)
+        Lat=allEE['latitude']
+        Lon=allEE['logtitude']
+
+        for v in range(len(Lat)):
+            parkLat=Lat[v]
+            parkLon=Lon[v]
+            #print(Lat[v], Lon[v])
+            radLatB = math.radians(parkLat)
+            radLonB = math.radians(parkLon)
+
+            pA = math.atan(rb / ra * math.tan(radLatA))
+            pB = math.atan(rb / ra * math.tan(radLatB))
+            x = math.acos(math.sin(pA) * math.sin(pB) + math.cos(pA) * math.cos(pB) * math.cos(radLonA - radLonB))
+            c1 = (math.sin(x) - x) * (math.sin(pA) + math.sin(pB)) ** 2 / math.cos(x / 2) ** 2
+            c2 = (math.sin(x) + x) * (math.sin(pA) - math.sin(pB)) ** 2 / math.sin(x / 2) ** 2
+            dr = flatten / 8 * (c1 - c2)
+            distance = ra * (x + dr)
+            distance = round(distance / 1000, 4)
+            dist.append(distance)
+            #print(f'{distance}km')
+            allEE['distance']=dist
+        return dist
+
+    def getParkLoc(self):
+        global stations, lat, lng, parkname
+        stations = {};
+        lat = [];lng = [];parkname = [];
+        with open('ParkInfo.csv',encoding="utf-8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for r in reader:
+                # print(r["EntranceExitType"])
+                if r["EntranceExitType"] == str(1):
+                    # print("*****")
+                    parkname.append(r['CarParkName'])
+                    loc = eval(r['EntranceExits'])
+
+                    if (len(loc) > 1):
+                        # print(loc[:1][0]["Position"]["PositionLat"])
+                        lat.append(loc[:1][0]["Position"]["PositionLat"])
+                        lng.append(loc[:1][0]["Position"]["PositionLon"])
+                    else:
+                        for k in loc:
+                            # print(k["Position"]["PositionLat"])
+                            lat.append(k["Position"]["PositionLat"])
+                            lng.append(k["Position"]["PositionLon"])
+
+                else:
+                    parkname.append(r['CarParkName'])
+                    con = eval(r['Entrances'])
+                    if (len(con) > 1):
+                        # print(loc[:1][0]["Position"]["PositionLat"])
+                        lat.append(con[:1][0]["Position"]["PositionLat"])
+                        lng.append(con[:1][0]["Position"]["PositionLon"])
+                    else:
+                        for c in con:
+                            # print(c['Position']['PositionLat'])
+                            lat.append(c["Position"]["PositionLat"])
+                            lng.append(c["Position"]["PositionLon"])
+
+                        # print(c['Position'])
+                    # print("-------")
+                # r["Entrances"]
+
+            csvfile.close()
+        stations['latitude'] = lat
+        stations['logtitude'] = lng
+        stations['parkN'] = parkname
+
+
+        return stations
+
+    def getNearInfo(self):
+        return
+if __name__ == '__main__':
+    nearinfo=DealLoc(25.030094, 121.557377)
+    rlt=nearinfo.cntDistance()
+    print(rlt)
+#     data=DealData(['https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingEntranceExit/City/HualienCounty?%24format=JSON',
+#             'https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingAvailability/City/HualienCounty?%24format=JSON'])
+#
+#     data.getData()
+#     print(data)
+#     data.parkInfo("parkavailable")
 
 
 

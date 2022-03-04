@@ -1,0 +1,28 @@
+CarParkID,CarParkName,TotalSpaces,AvailableSpaces,Availabilities,ServiceStatus,FullStatus,ChargeStatus,DataCollectTime
+22763918+15001,{'Zh_tw': '花蓮市三民停車場'},50,38,"[{'SpaceType': 1, 'NumberOfSpaces': 50, 'AvailableSpaces': 38}]",1,0,1,2022-03-04T09:56:52+08:00
+28984733+15002,{'Zh_tw': '花蓮遠東百貨停車場'},929,462,"[{'SpaceType': 1, 'NumberOfSpaces': 929, 'AvailableSpaces': 462}]",1,0,1,2022-03-04T09:56:52+08:00
+80118614+15003,{'Zh_tw': '財團法人佛教慈濟綜合醫院花蓮院區附設停車場'},300,15,"[{'SpaceType': 1, 'NumberOfSpaces': 300, 'AvailableSpaces': 15}]",1,0,1,2022-03-04T09:56:52+08:00
+53297327+15004,{'Zh_tw': '仁里立體停車場'},183,2,"[{'SpaceType': 1, 'NumberOfSpaces': 183, 'AvailableSpaces': 2}]",1,0,1,2022-03-04T09:56:52+08:00
+53599694+15005,{'Zh_tw': '花蓮文化創意產業園區停車場'},0,0,"[{'SpaceType': 1, 'NumberOfSpaces': 0, 'AvailableSpaces': 0}]",1,0,1,2022-03-04T09:56:52+08:00
+10614013+15006,{'Zh_tw': '多功能停車場'},42,4,"[{'SpaceType': 1, 'NumberOfSpaces': 42, 'AvailableSpaces': 4}]",1,0,1,2022-03-04T09:56:52+08:00
+85051937+15007,{'Zh_tw': '中山明智停車場'},0,0,"[{'SpaceType': 1, 'NumberOfSpaces': 0, 'AvailableSpaces': 0}]",1,0,1,2022-03-04T09:56:52+08:00
+80118614+15008,{'Zh_tw': '永發停車場-東洋站'},235,210,"[{'SpaceType': 1, 'NumberOfSpaces': 235, 'AvailableSpaces': 210}]",1,0,1,2022-03-04T09:56:52+08:00
+58019180+15009,{'Zh_tw': '明心停車場'},80,34,"[{'SpaceType': 1, 'NumberOfSpaces': 80, 'AvailableSpaces': 34}]",1,0,1,2022-03-04T09:56:52+08:00
+58019180+15010,{'Zh_tw': '仁愛停車場'},134,103,"[{'SpaceType': 1, 'NumberOfSpaces': 134, 'AvailableSpaces': 103}]",1,0,1,2022-03-04T09:56:52+08:00
+82182231+15011,{'Zh_tw': '花蓮市 PP 停車場'},62,53,"[{'SpaceType': 1, 'NumberOfSpaces': 62, 'AvailableSpaces': 53}]",1,0,1,2022-03-04T09:56:52+08:00
+37993678+15012,{'Zh_tw': '彪吉利(花蓮停三)汽(紅黃牌重機)停車場'},93,38,"[{'SpaceType': 1, 'NumberOfSpaces': 93, 'AvailableSpaces': 38}]",1,0,1,2022-03-04T09:56:52+08:00
+80118614+15013,{'Zh_tw': '成佳財停車場'},210,9,"[{'SpaceType': 1, 'NumberOfSpaces': 210, 'AvailableSpaces': 9}]",1,0,1,2022-03-04T09:56:52+08:00
+97329493+15014,{'Zh_tw': '東大門一二場'},330,322,"[{'SpaceType': 1, 'NumberOfSpaces': 330, 'AvailableSpaces': 322}]",1,0,1,2022-03-04T09:56:52+08:00
+52882567+15015,{'Zh_tw': '新港街停車場'},27,3,"[{'SpaceType': 1, 'NumberOfSpaces': 27, 'AvailableSpaces': 3}]",1,0,1,2022-03-04T09:56:52+08:00
+13124285+15017,{'Zh_tw': '明禮路停車場'},106,0,"[{'SpaceType': 1, 'NumberOfSpaces': 106, 'AvailableSpaces': 0}]",1,0,1,2022-03-04T09:56:52+08:00
+37993678+15018,{'Zh_tw': '彪吉利停車場(國聯五路站)'},40,18,"[{'SpaceType': 1, 'NumberOfSpaces': 40, 'AvailableSpaces': 18}]",1,0,1,2022-03-04T09:56:52+08:00
+37993678+15019,{'Zh_tw': '前站停車場(檳榔攤)'},46,16,"[{'SpaceType': 1, 'NumberOfSpaces': 46, 'AvailableSpaces': 16}]",1,0,1,2022-03-04T09:56:52+08:00
+80118614+15020,{'Zh_tw': '後火車站機車停車場'},340,192,"[{'SpaceType': 1, 'NumberOfSpaces': 340, 'AvailableSpaces': 192}]",1,0,1,2022-03-04T09:56:52+08:00
+37993678+15021,{'Zh_tw': '彪吉利(花蓮停四)機車停車場'},495,210,"[{'SpaceType': 1, 'NumberOfSpaces': 495, 'AvailableSpaces': 210}]",1,0,1,2022-03-04T09:56:52+08:00
+80738683+15022,{'Zh_tw': '花蓮醫院停車場(有3層樓)'},50,33,"[{'SpaceType': 1, 'NumberOfSpaces': 50, 'AvailableSpaces': 33}]",1,0,1,2022-03-04T09:56:52+08:00
+94607424+15023,{'Zh_tw': '財團法人臺灣基督教門諾會醫院(00:30~06:30非營業時間)'},235,156,"[{'SpaceType': 1, 'NumberOfSpaces': 235, 'AvailableSpaces': 156}]",1,0,1,2022-03-04T09:56:52+08:00
+42958475+15024,{'Zh_tw': '建程停車場'},121,72,"[{'SpaceType': 1, 'NumberOfSpaces': 121, 'AvailableSpaces': 72}]",1,0,1,2022-03-04T09:56:52+08:00
+87344137+15025,{'Zh_tw': '停好車停車場'},37,34,"[{'SpaceType': 1, 'NumberOfSpaces': 37, 'AvailableSpaces': 34}]",1,0,1,2022-03-04T09:56:52+08:00
+85056975+15026,{'Zh_tw': '東芥東大門停車場'},161,153,"[{'SpaceType': 1, 'NumberOfSpaces': 161, 'AvailableSpaces': 153}]",1,0,1,2022-03-04T09:56:52+08:00
+97329493+15028,{'Zh_tw': '東大門三場'},83,83,"[{'SpaceType': 1, 'NumberOfSpaces': 83, 'AvailableSpaces': 83}]",1,0,1,2022-03-04T09:56:52+08:00
+90831316+15030,{'Zh_tw': '統冠重慶站停車場'},49,10,"[{'SpaceType': 1, 'NumberOfSpaces': 49, 'AvailableSpaces': 10}]",1,0,1,2022-03-04T09:56:52+08:00

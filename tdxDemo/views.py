@@ -1,4 +1,5 @@
 import sys
+import json
 
 sys.path.append("C:\\herokuenv\\eHualien")
 #print(sys.path)
@@ -24,7 +25,8 @@ def callback(request):
         body=request.body.decode('utf-8')
         try:
             events=parser.parse(body,signature)
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=events.text))
+            print(events)
+
         except InvalidSignatureError:
             return HttpResponseForbidden()
         except LineBotApiError:
@@ -43,10 +45,10 @@ def callback(request):
                         func.sendGoPlan(event)
                     else:
                         pass
-                line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
-            # if isinstance(event,PostbackEvent):
-            #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
-            #line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.text))
+                if isinstance(event.message, LocationMessage):
+                    func.getUsrLoc(event)
+                #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+
         return HttpResponse()
 
     else:
