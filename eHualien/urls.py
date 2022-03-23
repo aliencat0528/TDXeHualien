@@ -13,9 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import sys
-
-sys.path.append("C:\\herokuenv\\eHualien")
 
 from django.contrib import admin
 from django.urls import path
@@ -27,15 +24,15 @@ from django.core.wsgi import get_wsgi_application
 import os
 import sys
 
+
 sys.path.append("C:\\herokuenv\\eHualien")
-
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eHualien.settings')
 
 application = get_wsgi_application()
 
+
 urlpatterns = [
-    url('^callback',views.callback),
-    url('^showDB',views.showDB),
+    url(r'^callback',views.callback),
+    # url('^showDB',views.showDB),
     path('admin/', admin.site.urls),
 ]

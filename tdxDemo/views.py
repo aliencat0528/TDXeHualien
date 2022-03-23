@@ -37,21 +37,31 @@ def callback(request):
             if isinstance(event,MessageEvent):
                 if isinstance(event.message,TextMessage):
                     mtxt=event.message.text
-                    if mtxt=='搜搜停車場':
-                        func.sendPark(event)
-                    elif mtxt=='看看即時路況':
-                        func.sendRealTraffic(event)
-                    elif mtxt=='查查路線規劃':
+                    if mtxt=='路況待開發':
+                        # func.sendRealTraffic(event)
+                        pass
+                    elif mtxt=='商家待開發':
+                        pass
+                    elif mtxt=='我附近的停車場在哪呢?':
+                        func.shareUsrLoc(event)
+                    elif mtxt=='指引我方向吧!!':
                         func.sendGoPlan(event)
+                    elif mtxt=='今天我想查點..':
+                        func.setQuery(event)
+                    elif mtxt=='還有多少車位呢?':
+                        func.sendPark(event)
                     else:
                         pass
                 if isinstance(event.message, LocationMessage):
-                    func.getUsrLoc(event)
+                    func.getNearPark(event)
                 #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
-
+            elif isinstance(event,PostbackEvent):
+                usrID=event.source.sender_id
+                backdata=event.postback.data
+                func.changeMenu(usrID,backdata)
+            else:
+                pass
         return HttpResponse()
 
     else:
         return HttpResponseBadRequest()
-def showDB():
-    pass

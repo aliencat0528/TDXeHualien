@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 
 import os
 import sys
-
-sys.path.append("C:\\herokuenv\\eHualien")
+import django
 from django.core.wsgi import get_wsgi_application
 
+sys.path.append("C:\\herokuenv\\eHualien")
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eHualien.settings')
 
 application = get_wsgi_application()
+django.setup()
