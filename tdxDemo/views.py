@@ -13,6 +13,7 @@ from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import * #MessageEvent, TextMessage,LocationMessage
 from tdxDemo import func
+from urllib.parse import parse_qsl
 
 #settings.configure(DEBUG=True)
 line_bot_api=LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -56,9 +57,11 @@ def callback(request):
                     func.getNearPark(event)
                 #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
             elif isinstance(event,PostbackEvent):
-                usrID=event.source.sender_id
-                backdata=event.postback.data
-                func.changeMenu(usrID,backdata)
+                # usrID=event.source.sender_id
+                backdata=dict(parse_qsl(event.postback.data))
+                #func.changeMenu(usrID,backdata)
+                func.setQuery(event,pargs=event.postback.data)
+
             else:
                 pass
         return HttpResponse()

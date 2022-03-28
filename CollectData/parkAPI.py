@@ -181,7 +181,7 @@ class DealData():
                     # mergepark.append(linepark)
                     # #print(linepark)
             csvfile.close()
-            print(mergepark)
+            #print(mergepark)
             return mergepark
         else:
             pass
@@ -256,13 +256,30 @@ class DealLoc():
     def getNearInfo(self,toSort):
         #print(toSort)
         topfive=""
+        locAdd={}
+        global i
+        i=0
         parkSort=sorted(toSort,key=lambda x:x.get('distance'))
-            #print(ts.get('distance'))
+        #print(ts.get('distance'))
         for newpark in parkSort[:4]:
-            print(newpark)
+            #print(newpark)
+            locAdd[i]=[newpark['CarParkName'],newpark['Address']]
             topfive+="{}\n>>>收費:{}".format(newpark['CarParkName'],newpark['FareDescription']+"\n"+"\n")
+            i+=1
+        locAdd[i] = [newpark['CarParkName'], newpark['Address']]
         topfive += "{}\n>>>收費:{}".format(newpark['CarParkName'], newpark['FareDescription'] + "\n")
-        return  topfive
+        #print(locAdd)
+        return topfive,locAdd,parkSort
+
+class DealShowInfo():
+
+    def __init__(self, **passPark):
+        print("passpark",passPark['passparg'])
+        self.parkDealInfo=passPark['passparg']
+
+    def testrlt(self):
+        print("parkapiparam:",self.parkDealInfo)
+        return self.parkDealInfo
 
     # def getLocOldVer(self):
     #     global stations, lat, lng, parkname
@@ -354,7 +371,7 @@ class DealLoc():
 if __name__ == '__main__':
     nearinfo=DealLoc(25.030094, 121.557377)
     rlt=nearinfo.cntDistance()
-    print(nearinfo.getNearInfo(rlt))
+    print(nearinfo.getNearInfo(rlt)[0])
 
     # data = DealData(
     #     ['https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/CarPark/City/HualienCounty?%24format=JSON',

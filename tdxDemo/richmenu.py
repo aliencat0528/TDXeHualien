@@ -32,7 +32,7 @@ def homePage():
           "action": {
             "type": "postback",
             #"text": "停車",
-            "data": "switchPark"
+            "data": "menu=switchPark"
           }
         },
         {
@@ -134,7 +134,7 @@ def subPark():
           "action": {
             "type": "postback",
             #"text": "返回主頁",
-            "data": "switchHome"
+            "data": "menu=switchHome"
           }
         }
       ]
