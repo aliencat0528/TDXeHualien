@@ -14,7 +14,10 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+#BASE_DIR = Path(__file__).resolve().parent
+#print(BASE_DIR)
+#print(str(BASE_DIR / 'db.sqlite3'))
+#print(str(BASE_DIR / 'tdxDemo'/'models.py'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -35,13 +38,16 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    #'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tdxDemo'
+    #'tdxDemo.models.parkInfoDB',
+    'tdxDemo.apps.TdxDemoConfig'
+    #'tdxDemo'
 
 ]
 
@@ -81,10 +87,21 @@ WSGI_APPLICATION = 'eHualien.wsgi.application'
 
 DATABASES = {
    'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': str(BASE_DIR / 'db.sqlite3'),
-   }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'parkdb',
+        'USER': 'root',
+        'PASSWORD': 'angel$SQL528',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
 }
+
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': str(BASE_DIR / 'db.sqlite3'),
+#    }
+# }
 
 #
 # DATABASES = {

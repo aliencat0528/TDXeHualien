@@ -11,10 +11,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='parkSpace',
-            fields=[
-                ('parksid', models.CharField(max_length=15, primary_key=True, serialize=False, unique=True)),
-            ],
-        ),
+       
     ]

@@ -1,16 +1,17 @@
 from django.db import models
-# import sys
-# import os
-# import django
-# #
-# # sys.path.append("C:\\herokuenv\\eHualien")
+import sys
+import os
+import django
 #
-#
-# # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eHualien.settings')
-# # django.setup()
-# #print("modelPATH::",os.getcwd())
+# sys.path.append("C:\\herokuenv\\eHualien")
+
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eHualien.settings')
+django.setup()
+#print("modelPATH::",os.getcwd())
 
 #Create your models here.
+
 class parkInfoDB(models.Model):
     #CarParkShortName,Geometry,ParkingAreas,ImageURLs,FareURL,ReservationURL,ReservationDescription,LocationMapURL,TownName,TownID
     CarParkID=models.CharField(max_length=15,null=False,primary_key=True,unique=True)
@@ -23,8 +24,8 @@ class parkInfoDB(models.Model):
     ParkingTypes=models.TextField()
     ParkingSiteTypes=models.TextField()
     ChargeTypes=models.TextField()
-    Telephone=models.CharField(max_length=20)
-    EmergencyPhone=models.CharField(max_length=20)
+    Telephone=models.CharField(max_length=15)
+    EmergencyPhone=models.CharField(max_length=12)
     PositionLat=models.FloatField(null=False)
     PositionLon=models.FloatField(null=False)
     Email=models.EmailField(max_length=254)

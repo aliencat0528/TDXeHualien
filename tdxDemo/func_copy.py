@@ -56,6 +56,7 @@ def getNearPark(event):
 
         #print("testsort:",type(fiveNameAddr),fiveNameAddr)
         #stepback=sendGoPlan(event='none', lat=event.message.latitude, lon=event.message.longitude)
+        # message=TextSendMessage(text=fiveNear,quick_reply=QuickReply(items=[QuickReplyButton(action=PostbackAction(label="開啟按鈕",data="123"))]))
         message = TextSendMessage(text=fiveNear, quick_reply=QuickReply(
             items=[QuickReplyButton(action=PostbackAction(label=">>資料傳送門請點我<<",
                                 data=str({"parkloc":fiveNameAddr,"lat":event.message.latitude,"lon":event.message.longitude}),
@@ -64,6 +65,8 @@ def getNearPark(event):
         #message=TextSendMessage(text="緯度:"+str(event.message.latitude)+"\n"+"經度:"+str(event.message.longitude))
         line_bot_api.reply_message(event.reply_token,message)
 
+        #getParam(nearpark.getNearToGo(cntDistPark))
+
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤!'))
 
@@ -71,23 +74,32 @@ def sendGoPlan(event,**parkargs):
     try:
 
         print("eeeee:", event)
+        # if(event=='none'):
+        #     global usrlat,usrlon
+        #     usrlat=parkargs['lat']
+        #     usrlon=parkargs['lon']
+        #     print("usrlat::",usrlat,"usrlon::",usrlon)
+        #     return
 
         if (event.type == 'postback'):
             global testdata
             testdata = []
-            testdata.append(parkargs['pargs'])
+            print("testargs:", parkargs)
+            test = parkAPI.DealShowInfo(passparg=parkargs['pargs'])
+            print("backargs:", test.testrlt())
+            testdata.append(test.testrlt())
             print("testdata:", testdata[0])
         elif (event.type == 'message'):
             print("testpasssucc:", testdata[0])
             nearAddr=eval(testdata[0])
             trans=[index for index in nearAddr['parkloc'].keys()]
-            #print("trans:",trans)
+            print("trans:",trans)
             usrlat = nearAddr.get('lat')
             usrlon = nearAddr.get('lon')
-            # for i in trans:
-            #     print("name:::",nearAddr.get('parkloc').get(i)[0],"mapurl:::",'https://www.google.com/maps/dir/?api=1&origin={}%2C{}&destination={}%2C{}'.format(usrlat,usrlon,nearAddr.get('parkloc').get(i)[1],nearAddr.get('parkloc').get(i)[2]),"lat:::",nearAddr.get('parkloc').get(i)[1],"lon:::",nearAddr.get('parkloc').get(i)[2])
+            for i in trans:
+                print("name:::",nearAddr.get('parkloc').get(i)[0],"mapurl:::",'https://www.google.com/maps/dir/?api=1&origin={}%2C{}&destination={}%2C{}'.format(usrlat,usrlon,nearAddr.get('parkloc').get(i)[1],nearAddr.get('parkloc').get(i)[2]),"lat:::",nearAddr.get('parkloc').get(i)[1],"lon:::",nearAddr.get('parkloc').get(i)[2])
 
-            #print("usrlat::",usrlat,"usrlon::",usrlon)
+            print("usrlat::",usrlat,"usrlon::",usrlon)
             #message = TextSendMessage(text=str(testdata[0]))
             message = TemplateSendMessage(
                 alt_text='停車場路徑規劃',

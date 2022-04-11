@@ -71,10 +71,35 @@ class DealData():
         if(tag==0):
             ParkBaseData = json.loads(response)
             field="CarParkID,CarParkName,CarParkRegNo,OperatorID,Description,CarParkType,ParkingGuideType,ParkingTypes,ParkingSiteTypes,ChargeTypes,Telephone,EmergencyPhone,PositionLat,PositionLon,Email,Address,WebURL,SpecialOfferDescription,IsFreeParkingOutOfHours,VehicleRestriction,IsPublic,OperationType,LiveOccuppancyAvailable,EVRechargingAvailable,MonthlyTicketAvailable,SeasonTicketAvailable,ReservationAvailable,WheelchairAccessible,OvernightPermitted,TicketMachine,Toilet,Restaurant,GasStation,Shop,Gated,Lighting,SecureParking,TicketOffice,ProhibitedForAnyHazardousMaterialLoads,SecurityGuard,Supervision,LandMark,BuildingName,City,CityCode,FareDescription"
+            # field = [
+            #     "CarParkID",
+            #     "CarParkName",
+            #     "ParkingSiteTypes"
+            # ]
             with open('ParkBase.csv', 'w', newline='',encoding="utf-8") as file:
+                # for i in range(len(field)):
+                #     file.write(field[i] + ",")
+                #     if i + 1 == len(field):
+                #         file.write("\r\n")
+
+                # file.write(field)
+                # print("stop")
                 file.write(field)
                 file.write("\n")
                 for i in ParkBaseData['CarParks']:
+                    # for x in field:
+                    #     if x == "CarParkName":
+                    #         file.writelines(i.get(x).get("Zh_tw") + ",")
+                    #     elif x == "ParkingSiteTypes":
+                    #         file.writelines(str(i.get(x)).replace("[", "").replace("]", "").replace(", ", ";") + ",")
+                    #         temp = str(i.get(x)).replace("[", "").replace("]", "").replace(", ", ";")
+                    #         temp = temp.split(";")
+                    #         for j in temp:
+                    #             print("value: " + j)
+                    #     else:
+                    #         file.writelines(str(i.get(x)) + ",")
+                    # # file.writelines(str(i.get(field[i])) + ",")
+                    #print("parki::",i)
                     for x in field.split(",")[:-1]:
                         if x=='CarParkName':
                             file.writelines(str(i.get(x).get("Zh_tw") + ","))
@@ -84,6 +109,9 @@ class DealData():
                             file.writelines(str(i.get('CarParkPosition').get('PositionLon'))+",")
                         elif x =='ParkingTypes' or x=='ParkingSiteTypes' or x=='ChargeTypes':
                             file.writelines(str(i.get(x)).replace(",",";")+",")
+                        # elif x=='FareDescription':
+                        #     print(i.get(x))
+                        #     #file.writelines(str(i.get(x).replace(" , ",";"))+",")
                         elif x=='SpecialOfferDescription' or x=='VehicleRestriction':
                             file.writelines(str(i.get(x)).replace(",", ";") + ",")
                         else:
@@ -91,6 +119,12 @@ class DealData():
                     file.write(str(i.get('FareDescription')))
                     file.write("\n")
 
+                # for i in ParkBaseData['CarParks']:
+                #     writer = csv.DictWriter(csvfile, fieldnames=i.keys())
+                #     writer.writeheader()
+                #     print(i)
+                #     writer.writerow(i)
+            # csvfile.close()
 
 
         elif(tag==1):
@@ -104,6 +138,11 @@ class DealData():
                         file.writelines(str(i.get(x)) + ",")
                     file.write(str(i.get('EntranceExits')))
                     file.write("\n")
+                # field = ParkInfoData["ParkingEntranceExits"][0].keys()
+                # writer = csv.DictWriter(csvfile, fieldnames=field)
+                # writer.writeheader()
+                # for i in ParkInfoData["ParkingEntranceExits"]:
+                #     writer.writerow(i)
             file.close()
         elif (tag==2):
             availParkData = json.loads(response)
@@ -125,6 +164,11 @@ class DealData():
                             file.writelines(str(i.get(x)) + ",")
                     file.write(str(i.get('DataCollectTime')))
                     file.write("\n")
+                # field = availParkData["ParkingAvailabilities"][0].keys()
+                # writer = csv.DictWriter(csvfile, fieldnames=field)
+                # writer.writeheader()
+                # for i in availParkData["ParkingAvailabilities"]:
+                #     writer.writerow(i)
             file.close()
         else:
             pass
@@ -136,6 +180,11 @@ class DealData():
                 reader = csv.DictReader(csvfile)
                 for r in reader:
                     mergepark+=("{}:{}".format(str(r['CarParkName']),str(r['AvailableSpaces']))+"\n")
+
+                    # #linepark = dict(zip([(dict(eval(r['CarParkName'])).values())], [r['AvailableSpaces']]))
+                    # linepark = (r['CarParkName'].split(": '")[1].rstrip("'}"), r['AvailableSpaces'])
+                    # mergepark.append(linepark)
+                    # #print(linepark)
             csvfile.close()
             #print(mergepark)
             return mergepark
@@ -146,13 +195,12 @@ class DealData():
 
 class DealLoc():
 
-    def __init__(self,usrLat,usrLon):
+    def __init__(self,usrLat, usrLon):
         self.usrLat = usrLat
         self.usrLon = usrLon
 
     def cntDistance(self):
         allEE= self.getParkLoc()
-        #print("allEE::", allEE, type(allEE))
         ra = 6378140  # 赤道半徑
         rb = 6356755  # 極半徑
         flatten = (ra - rb) / ra  # Partial rate of the earth
@@ -173,16 +221,46 @@ class DealLoc():
             distance = round(distance / 1000, 4)
             #print(f'{distance} km')
             a['distance']=distance
-
-        #print("allEE::", allEE, type(allEE))
+        print("allEE::",allEE)
         return allEE
 
 
 
     def getParkLoc(self):
-        getDB=DealToDB()
-        dbinfo=getDB.passValue('all')
-        return dbinfo
+        #newdata=[]
+        eachdict=[]
+        global locInfo
+        with open('ParkBase.csv', encoding="utf-8") as file:
+            info=file.read()
+            #print("info::",info)
+            eachPark=[j for j in [i.split("\n") for i in info.split("\n")[:-1]]]
+            #print("eachpark::",eachPark)
+            key=[] #eachPark[0] --- len:1
+            value=[]  #eachPark[1:] --- len:47
+            for k in eachPark[0]:
+                key=k.split(",")
+            for v in eachPark[1:]:
+                for ev in v:
+                    #print(ev)
+                    # valueRule=re.compile(r'\[(\d*$[, \d*])\]')#[1,2,3,4],[254] fail :(
+                    # testrlt=valueRule.findall(ev)
+                    # print(testrlt)
+                    value=ev.split(",")
+                    locInfo=dict(zip(key,value))
+                    #print("locinfo::",locInfo)
+                    eachdict.append(locInfo)
+            #newdata.append(eachdict)
+            # for k in key:
+            #     print(len(k.split(",")))  #len:47
+            # for v in value:
+            #     for vv in v:
+            #         print(len(vv.split(","))) #49/51/48/51/50/48/48/48/53/55/47/51/57/47/49/57/47/47/48/47/48/53/48/48/47/49/47/49/58/51/48/49/54/51/48/52/49/48/52/50/49/51/47/47/57/47/49
+
+            # for pd in range(len(eachPark[0])):
+            #     print(type(eachPark[0][pd]),eachPark[1:][pd])
+            #locAdd=dict(zip([eachPark[0][pd]],eachPark[1:][pd]))
+        #print(eachdict)
+        return eachdict
 
     def getNearInfo(self,toSort):
         #print(toSort)
@@ -194,8 +272,6 @@ class DealLoc():
         with open('ParkSort.csv', 'w', newline='', encoding="utf-8") as file:
             file.writelines(str(parkSort))
         #print(ts.get('distance'))
-        # for newpark in parkSort:
-        #     print(newpark)
         for newpark in parkSort[:4]:
             #print(newpark)
             locAdd[i]=[newpark['CarParkName'], newpark['PositionLat'], newpark['PositionLon']]
@@ -206,6 +282,102 @@ class DealLoc():
         #print(locAdd)
         return topfive,locAdd,parkSort
 
+class DealShowInfo():
+
+    def __init__(self, **passPark):
+        #print("passpark:",passPark['passparg'])
+        self.parkDealInfo=passPark['passparg']
+
+    def testrlt(self):
+        print("parkapiparam:",self.parkDealInfo)
+        return self.parkDealInfo
+
+    # def getLocOldVer(self):
+    #     global stations, lat, lng, parkname
+    #     stations = {};
+    #     lat = [];
+    #     lng = [];
+    #     parkname = [];
+    #     with open('ParkInfo.csv', encoding="utf-8") as csvfile:
+    #         reader = csv.DictReader(csvfile)
+    #         for r in reader:
+    #             # print(r["EntranceExitType"])
+    #             if r["EntranceExitType"] == str(1):
+    #                 # print("*****")
+    #                 parkname.append(r['CarParkName'])
+    #                 loc = eval(r['EntranceExits'])
+    #
+    #                 if (len(loc) > 1):
+    #                     # print(loc[:1][0]["Position"]["PositionLat"])
+    #                     lat.append(loc[:1][0]["Position"]["PositionLat"])
+    #                     lng.append(loc[:1][0]["Position"]["PositionLon"])
+    #                 else:
+    #                     for k in loc:
+    #                         # print(k["Position"]["PositionLat"])
+    #                         lat.append(k["Position"]["PositionLat"])
+    #                         lng.append(k["Position"]["PositionLon"])
+    #
+    #             else:
+    #                 parkname.append(r['CarParkName'])
+    #                 con = eval(r['Entrances'])
+    #                 if (len(con) > 1):
+    #                     # print(loc[:1][0]["Position"]["PositionLat"])
+    #                     lat.append(con[:1][0]["Position"]["PositionLat"])
+    #                     lng.append(con[:1][0]["Position"]["PositionLon"])
+    #                 else:
+    #                     for c in con:
+    #                         # print(c['Position']['PositionLat'])
+    #                         lat.append(c["Position"]["PositionLat"])
+    #                         lng.append(c["Position"]["PositionLon"])
+    #
+    #                     # print(c['Position'])
+    #                 # print("-------")
+    #             # r["Entrances"]
+    #
+    #         csvfile.close()
+    #     stations['latitude'] = lat
+    #     stations['logtitude'] = lng
+    #     stations['parkN'] = parkname
+    #     return stations
+
+    # def getCntDistOldVer(self):
+    #     allEE = self.getParkEntranceExitLoc()
+    #     print(allEE)
+    #     global dist, parkLat, parkLon
+    #     dist = [];
+    #     parkLat = 0.0;
+    #     parkLon = 0.0
+    #     ra = 6378140  # 赤道半徑
+    #     rb = 6356755  # 極半徑
+    #     flatten = (ra - rb) / ra  # Partial rate of the earth
+    #     # change angle to radians
+    #     radLatA = math.radians(self.usrLat)
+    #     radLonA = math.radians(self.usrLon)
+    #     Lat = allEE['latitude']
+    #     Lon = allEE['logtitude']
+    #
+    #     for v in range(len(Lat)):
+    #         parkLat = Lat[v]
+    #         parkLon = Lon[v]
+    #         # print(Lat[v], Lon[v])
+    #         radLatB = math.radians(parkLat)
+    #         radLonB = math.radians(parkLon)
+    #
+    #         pA = math.atan(rb / ra * math.tan(radLatA))
+    #         pB = math.atan(rb / ra * math.tan(radLatB))
+    #         x = math.acos(math.sin(pA) * math.sin(pB) + math.cos(pA) * math.cos(pB) * math.cos(radLonA - radLonB))
+    #         c1 = (math.sin(x) - x) * (math.sin(pA) + math.sin(pB)) ** 2 / math.cos(x / 2) ** 2
+    #         c2 = (math.sin(x) + x) * (math.sin(pA) - math.sin(pB)) ** 2 / math.sin(x / 2) ** 2
+    #         dr = flatten / 8 * (c1 - c2)
+    #         distance = ra * (x + dr)
+    #         distance = round(distance / 1000, 4)
+    #         dist.append(distance)
+    #         # print(f'{distance}km')
+    #         allEE['distance'] = dist
+    #     # sortrlt=sorted(allEE['distance'])
+    #     #
+    #     # self.getNearInfo(allEE,sortrlt)
+    #     # return dist
 
 class DealToDB():
 
@@ -217,55 +389,13 @@ class DealToDB():
             for esd in eachsd:
                 db=parkInfoDB.objects.create(CarParkID=esd.get('CarParkID'),CarParkName=esd.get('CarParkName'),CarParkRegNo=esd.get('CarParkRegNo'),OperatorID=esd.get('OperatorID'),Description=esd.get('Description'),CarParkType=esd.get('CarParkType'),ParkingGuideType=esd.get('ParkingGuideType'),ParkingTypes=esd.get('ParkingTypes'),ParkingSiteTypes=esd.get('ParkingSiteTypes'),ChargeTypes=esd.get('ChargeTypes'),Telephone=esd.get('Telephone'),EmergencyPhone=esd.get('EmergencyPhone'),PositionLat=esd.get('PositionLat'),PositionLon=esd.get('PositionLon'),Email=esd.get('Email'),Address=esd.get('Address'),WebURL=esd.get('WebURL'),FareDescription=esd.get('FareDescription'),SpecialOfferDescription=esd.get('SpecialOfferDescription'),IsFreeParkingOutOfHours=esd.get('IsFreeParkingOutOfHours'),VehicleRestriction=esd.get('VehicleRestriction'),IsPublic=esd.get('IsPublic'),OperationType=esd.get('OperationType'),LiveOccuppancyAvailable=esd.get('LiveOccuppancyAvailable'),EVRechargingAvailable=esd.get('EVRechargingAvailable'),MonthlyTicketAvailable=esd.get('MonthlyTicketAvailable'),SeasonTicketAvailable=esd.get('SeasonTicketAvailable'),ReservationAvailable=esd.get('ReservationAvailable'),WheelchairAccessible=esd.get('WheelchairAccessible'),OvernightPermitted=esd.get('OvernightPermitted'),TicketMachine=esd.get('TicketMachine'),Toilet=esd.get('Toilet'),Restaurant=esd.get('Restaurant'),GasStation=esd.get('GasStation'),Shop=esd.get('Shop'),Gated=esd.get('Gated'),Lighting=esd.get('Lighting'),SecureParking=esd.get('SecureParking'),TicketOffice=esd.get('TicketOffice'),ProhibitedForAnyHazardousMaterialLoads=esd.get('ProhibitedForAnyHazardousMaterialLoads'),SecurityGuard=esd.get('SecurityGuard'),Supervision=esd.get('Supervision'),LandMark=esd.get('LandMark'),BuildingName=esd.get('BuildingName'),City=esd.get('City'),CityCode=esd.get('CityCode'))
                 db.save()
-                print('**save:{}**'.format(esd.get('CarParkID')))
         print('---save---')
 
-    # def __init__(self):
-    #     self.allinfo=parkInfoDB.objects.all().values()
-
-    def passValue(self,*field,**action):
-        allinfo=parkInfoDB.objects.all().values()
-        #print(allinfo)
-        if action:
-            pass
-        else:
-            contf = [] ; mulfield=[]
-            for ai in allinfo:
-                if (len(field) > 1):
-                    eachf=[]
-                    for f in field:
-                        eachf.append(ai.get(f))
-                    contf.append({ai.get('CarParkID'): eachf})
-                    mulfield.append(eachf)
-                else:
-                    if (field[0] == 'all'):
-                        return list(allinfo)
-                    else:
-                        mulfield.append(ai.get(field))
-                        contf.append({ai.get('CarParkID'): mulfield})
-            return contf
-
-        #option1
-        # testmp=parkInfoDB.objects.all()
-        # for tm in testmp.values():  ##dict
-
-        #     print(tm.get('PositionLat'),tm.get('PositionLon'))
-
-        #option2
-        # sqltest = parkInfoDB.objects.raw('SELECT CarParkID, PositionLat ,PositionLon FROM tdxDemo_parkinfodb')
-        # print(sqltest)
-        # print(len(sqltest))
-        # for st in sqltest:
-        #     print(st.PositionLat, st.PositionLon)
-
-        # print('------function test---------')
-        # print(parkInfoDB.objects.get(CarParkName='花蓮民生停車場'))##parkInfoDB object (A00033)
-        # print(parkInfoDB.objects.filter(CarParkName='花蓮民生停車場'))##<QuerySet [<parkInfoDB: parkInfoDB object (A00033)>]>
-
-
-
+    def passValue(self):
+        pass
 
 if __name__ == '__main__':
+
     pass
     # data = DealData(
     #     ['https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/CarPark/City/HualienCounty?%24format=JSON',
@@ -282,9 +412,7 @@ if __name__ == '__main__':
     # print(nearinfo.getNearInfo(rlt)[0])
     # saveToDB = DealToDB()
     # saveToDB.toDB()
-    # testreturn=saveToDB.passValue('all')
-    # print(testreturn)
-
+    # saveToDB.passValue()
 
 
 
