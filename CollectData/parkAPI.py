@@ -23,6 +23,12 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "eHualien.settings")
 import django
 django.setup()
 from tdxDemo.models import parkInfoDB
+from django.db.models import *
+from django.db.models.functions import *
+
+
+
+
 #
 # from django.core.wsgi import get_wsgi_application
 # application = get_wsgi_application()
@@ -146,65 +152,41 @@ class DealData():
 
 class DealLoc():
 
-    def __init__(self,usrLat,usrLon):
-        self.usrLat = usrLat
-        self.usrLon = usrLon
+    def __init__(self,*args):
+        if args:
+            self.usrLat = args[0]
+            self.usrLon = args[1]
 
     def cntDistance(self):
-        allEE= self.getParkLoc()
-        #print("allEE::", allEE, type(allEE))
-        ra = 6378140  # 赤道半徑
-        rb = 6356755  # 極半徑
-        flatten = (ra - rb) / ra  # Partial rate of the earth
-        # change angle to radians
-        radLatA = math.radians(self.usrLat)
-        radLonA = math.radians(self.usrLon)
-        for a in allEE:
-            radLatB = math.radians(float(a.get('PositionLat')))
-            radLonB = math.radians(float(a.get('PositionLon')))
+        allEE = parkInfoDB.objects.annotate(distance=6371 * ACos(
+            Cos(Radians(self.usrLat))
+            * Cos(Radians('PositionLat'))
+            * Cos(Radians('PositionLon') - Radians(self.usrLon))
+            + Sin(Radians(self.usrLat))
+            * Sin(Radians('PositionLat'))
+            , output_field=FloatField())).order_by('distance')
 
-            pA = math.atan(rb / ra * math.tan(radLatA))
-            pB = math.atan(rb / ra * math.tan(radLatB))
-            x = math.acos(math.sin(pA) * math.sin(pB) + math.cos(pA) * math.cos(pB) * math.cos(radLonA - radLonB))
-            c1 = (math.sin(x) - x) * (math.sin(pA) + math.sin(pB)) ** 2 / math.cos(x / 2) ** 2
-            c2 = (math.sin(x) + x) * (math.sin(pA) - math.sin(pB)) ** 2 / math.sin(x / 2) ** 2
-            dr = flatten / 8 * (c1 - c2)
-            distance = ra * (x + dr)
-            distance = round(distance / 1000, 4)
-            #print(f'{distance} km')
-            a['distance']=distance
-
-        #print("allEE::", allEE, type(allEE))
-        return allEE
-
-
+        return allEE.values()
 
     def getParkLoc(self):
         getDB=DealToDB()
         dbinfo=getDB.passValue('all')
         return dbinfo
 
-    def getNearInfo(self,toSort):
-        #print(toSort)
-        topfive=""
-        locAdd={}
+    def getNearInfo(self,parkdata,cond):
+        parkSort=parkdata[:cond]
+        topfive = ""
+        locAdd = {}
         global i
-        i=0
-        parkSort=sorted(toSort,key=lambda x:x.get('distance'))
-        with open('ParkSort.csv', 'w', newline='', encoding="utf-8") as file:
-            file.writelines(str(parkSort))
-        #print(ts.get('distance'))
-        # for newpark in parkSort:
-        #     print(newpark)
-        for newpark in parkSort[:4]:
-            #print(newpark)
+        i = 0
+        for newpark in parkSort[:cond-1]:
             locAdd[i]=[newpark['CarParkName'], newpark['PositionLat'], newpark['PositionLon']]
             topfive+="{}\n>>>收費:{}".format(newpark['CarParkName'],newpark['FareDescription']+"\n"+"\n")
             i+=1
-        locAdd[i] = [parkSort[4]['CarParkName'], parkSort[4]['PositionLat'], parkSort[4]['PositionLon']]
-        topfive += "{}\n>>>收費:{}".format(parkSort[4]['CarParkName'], parkSort[4]['FareDescription'] + "\n")
+        locAdd[i] = [parkSort[cond-1]['CarParkName'], parkSort[cond-1]['PositionLat'], parkSort[cond-1]['PositionLon']]
+        topfive += "{}\n>>>收費:{}".format(parkSort[cond-1]['CarParkName'], parkSort[cond-1]['FareDescription'] + "\n")
         #print(locAdd)
-        return topfive,locAdd,parkSort
+        return topfive,locAdd,parkdata
 
 
 class DealToDB():
@@ -248,7 +230,6 @@ class DealToDB():
         #option1
         # testmp=parkInfoDB.objects.all()
         # for tm in testmp.values():  ##dict
-
         #     print(tm.get('PositionLat'),tm.get('PositionLon'))
 
         #option2
@@ -266,7 +247,6 @@ class DealToDB():
 
 
 if __name__ == '__main__':
-    pass
     # data = DealData(
     #     ['https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/CarPark/City/HualienCounty?%24format=JSON',
     #      'https://traffic.transportdata.tw/MOTC/v1/Parking/OffStreet/ParkingEntranceExit/City/HualienCounty?%24format=JSON',
@@ -277,9 +257,9 @@ if __name__ == '__main__':
     # print(data)
     # data.parkInfo("parkavailable")
     #
-    # nearinfo = DealLoc(25.030094, 121.557377)
-    # rlt = nearinfo.cntDistance()
-    # print(nearinfo.getNearInfo(rlt)[0])
+    nearinfo = DealLoc(25.030094, 121.557377)
+    rlt = nearinfo.cntDistance()
+    print(nearinfo.getNearInfo(rlt,5)[0])
     # saveToDB = DealToDB()
     # saveToDB.toDB()
     # testreturn=saveToDB.passValue('all')

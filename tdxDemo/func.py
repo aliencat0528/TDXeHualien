@@ -49,7 +49,7 @@ def getNearPark(event):
         #print("緯度:"+str(event.message.latitude)+"\n"+"經度:"+str(event.message.longitude))
         nearpark=parkAPI.DealLoc(event.message.latitude,event.message.longitude)
         cntDistPark=nearpark.cntDistance()
-        findnear=nearpark.getNearInfo(cntDistPark)
+        findnear=nearpark.getNearInfo(cntDistPark,5)
         fiveNear=findnear[0]
         fiveNameAddr = findnear[1]
         oriSortData=findnear[2]
